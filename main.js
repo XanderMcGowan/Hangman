@@ -34,6 +34,7 @@ const rl = readline.createInterface({
 let wordChoices = ["word", "dog", "rabbit", "cat", "goldfish", "goat"]
 let alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r',  's', 't', 'u', 'v', 'w', 'x','y', 'z' ]
 let chosenArr = []
+
 let chosenWord = ""
 let barStr = ""
 let userGuess = ""
@@ -46,7 +47,7 @@ const generateWord = () => {
     randomNumber = Math.floor(randomNumber);
     chosenWord = wordChoices[randomNumber]
     chosenArr = chosenWord.split("")
-    console.log(chosenArr)
+   
 }
 const printBoard = () => {
     let barArr = []
@@ -54,16 +55,26 @@ const printBoard = () => {
     {
         barArr.push("_")
     }
-    barStr = barArr.toString().replace(/,/g , " ")
+
+    barStr = barArr.toString().replace(/,/g , "")
     console.log(barStr)
+
 }
 
 const checkLetter = (userGuess) => {
     console.log(chosenArr)
+    for( let i = 0; i < chosenArr.length; i++){
+        if (chosenArr[i] == userGuess){
+            barStr[i].replace(barStr[i],userGuess)
+            console.log( barStr[i])
+        }
+    }
+    console.log(barStr)
 }
 
 
 const getPrompt = () => {
+    printBoard()
 rl.question("Your Guess: ", function (guess) {
     userGuess = guess.trim().toLowerCase()
     console.log(userGuess)
@@ -74,12 +85,10 @@ rl.question("Your Guess: ", function (guess) {
         getPrompt()
     }
       checkLetter(userGuess)  
-      getPrompt()
     });
 }
 
 generateWord()
-printBoard()
 getPrompt()
 
 
