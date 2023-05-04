@@ -29,15 +29,13 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+// let alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x','y', 'z' ]
 
 
-let wordChoices = ["word", "dog", "rabbit", "cat", "goldfish", "goat"]
-let alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x','y', 'z' ]
-let chosenArr = []
+let wordChoices = ["word", "dog", "rabbit", "cat", "goldfish", "goat", "elephant", "lion", "gazelle"]
 let chosenWord = ""
-let barStr = "_______________"
 let userGuess = ""
-let chosenBarStr = ""
+
 
 
 
@@ -46,14 +44,10 @@ const generateWord = () => {
     const highest = wordChoices.length;
 
     let randomNumber = Math.floor(Math.random() * highest);
-
+    console.log(randomNumber)
     chosenWord = wordChoices[randomNumber]
 
-    chosenArr = chosenWord.split("")
-
-    chosenBarStr = barStr.substring(0, chosenArr.length)
-
-    console.log(chosenArr)
+    console.log(chosenWord)
    
 }
 
@@ -63,7 +57,6 @@ const checkLetter = () => {
 }
 
 const printBoard = () => {
-    console.log(chosenBarStr)
 
 
 }
@@ -80,7 +73,7 @@ rl.question("Your Guess: ", function (guess) {
         console.log(chosenBarStr)
         getPrompt()
     }
-      checkLetter(userGuess, chosenBarStr, chosenWord)  
+      checkLetter()  
     });
 }
 
