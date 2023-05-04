@@ -32,63 +32,61 @@ const rl = readline.createInterface({
 
 
 let wordChoices = ["word", "dog", "rabbit", "cat", "goldfish", "goat"]
-let alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r',  's', 't', 'u', 'v', 'w', 'x','y', 'z' ]
+let alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x','y', 'z' ]
 let chosenArr = []
-
 let chosenWord = ""
-let barStr = ""
+let barStr = "_______________"
 let userGuess = ""
+let chosenBarStr = ""
+
+
 
 
 const generateWord = () => {
-    const lowest = 0;
-    const highest = wordChoices.length -1;
-    let randomNumber = Math.random() * (highest - lowest) + lowest;
-    randomNumber = Math.floor(randomNumber);
+    const highest = wordChoices.length;
+
+    let randomNumber = Math.floor(Math.random() * highest);
+
     chosenWord = wordChoices[randomNumber]
+
     chosenArr = chosenWord.split("")
+
+    chosenBarStr = barStr.substring(0, chosenArr.length)
+
+    console.log(chosenArr)
    
 }
-const printBoard = () => {
-    let barArr = []
-    for(let i = 0; i < chosenArr.length; i++)
-    {
-        barArr.push("_")
-    }
 
-    barStr = barArr.toString().replace(/,/g , "")
-    console.log(barStr)
+
+const checkLetter = () => {
 
 }
 
-const checkLetter = (userGuess) => {
-    console.log(chosenArr)
-    for( let i = 0; i < chosenArr.length; i++){
-        if (chosenArr[i] == userGuess){
-            barStr[i].replace(barStr[i],userGuess)
-            console.log( barStr[i])
-        }
-    }
-    console.log(barStr)
+const printBoard = () => {
+    console.log(chosenBarStr)
+
+
 }
 
 
 const getPrompt = () => {
-    printBoard()
+
 rl.question("Your Guess: ", function (guess) {
     userGuess = guess.trim().toLowerCase()
     console.log(userGuess)
     if (userGuess.length > 1) {
         console.log("***GUESS CAN ONLY BE A SINGLE LETTER***")
         console.log(chosenArr)
-        printBoard()
+        console.log(chosenBarStr)
         getPrompt()
     }
-      checkLetter(userGuess)  
+      checkLetter(userGuess, chosenBarStr, chosenWord)  
     });
 }
 
+
 generateWord()
+printBoard()
 getPrompt()
 
 
