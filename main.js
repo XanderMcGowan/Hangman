@@ -51,16 +51,17 @@ const generateWord = () => {
     for (let i = 0; i < chosenWord.length ; i++){
         answerArray[i] = "_"
     }
-    console.log(answerArray)
+    // console.log(answerArray)
     console.log(chosenWord)
-   
 }
-
 generateWord()
 
 let remainingLetters = chosenWord.length
 console.log(remainingLetters)
 
+const printBoard = () => {
+    console.log(answerArray.join(" "))
+}
 
 
 const getPrompt = () => {
@@ -70,13 +71,15 @@ rl.question("Your Guess: ", function (guess) {
     console.log(userGuess)
     if (userGuess.length > 1) {
         console.log("***GUESS CAN ONLY BE A SINGLE LETTER***")
-        console.log(chosenArr)
-        console.log(chosenBarStr)
+        printBoard()
         getPrompt()
     }
-      checkLetter()  
+
     });
 }
+
+printBoard()
+getPrompt ()
 
 
 
