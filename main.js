@@ -35,6 +35,7 @@ const rl = readline.createInterface({
 let wordChoices = ["word", "dog", "rabbit", "cat", "goldfish", "goat", "elephant", "lion", "gazelle", "tiger"]
 let chosenWord = ""
 let userGuess = ""
+let answerArray = []
 
 
 
@@ -44,22 +45,22 @@ const generateWord = () => {
     const highest = wordChoices.length;
 
     let randomNumber = Math.floor(Math.random() * highest);
-    console.log(randomNumber)
+    // console.log(randomNumber)
     chosenWord = wordChoices[randomNumber]
 
+    for (let i = 0; i < chosenWord.length ; i++){
+        answerArray[i] = "_"
+    }
+    console.log(answerArray)
     console.log(chosenWord)
    
 }
 
+generateWord()
 
-const checkLetter = () => {
+let remainingLetters = chosenWord.length
+console.log(remainingLetters)
 
-}
-
-const printBoard = () => {
-
-
-}
 
 
 const getPrompt = () => {
@@ -78,9 +79,8 @@ rl.question("Your Guess: ", function (guess) {
 }
 
 
-generateWord()
-printBoard()
-getPrompt()
+
+
 
 
 
