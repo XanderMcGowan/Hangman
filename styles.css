@@ -1,0 +1,42 @@
+
+
+h1 {
+    font-family: 'IBM Plex Mono', monospace;
+} 
+
+.main-container {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.title {
+    /* border: 1px solid purple; */
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+}
+
+#board {
+    margin-top: 5vh;
+    /* border: 1px solid rgb(99, 211, 211); */
+    height: 40vh;
+    width: 30vw;
+}
+
+canvas {
+    border: 1px solid blue;
+}
+
+#chosenWord {
+    border: 1px solid violet;
+    display: flex;
+    font-size: 5vw;
+    justify-content: center;
+}
+
+
