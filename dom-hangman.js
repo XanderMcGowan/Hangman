@@ -41,7 +41,6 @@ ctx.stroke();
 // ctx.stroke();
 
 let wordChoices = [
-  "word",
   "dog",
   "rabbit",
   "cat",
@@ -51,6 +50,21 @@ let wordChoices = [
   "lion",
   "gazelle",
   "tiger",
+  "bison",
+  "dolphin",
+  "eagle",
+  "pony",
+  "ape",
+  "lobster",
+  "monkey",
+  "cow",
+  "deer",
+  "duck",
+  "wolf",
+  "pig",
+  "bear",
+  "horse",
+  "chicken"
 ];
 let chosenWord = "";
 let userGuess = "";
