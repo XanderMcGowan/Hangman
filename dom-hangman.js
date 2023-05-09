@@ -1,8 +1,7 @@
-
 var c = document.querySelector("canvas");
 
-canvas.width = window.innerWidth/3.5;
-canvas.height = window.innerHeight/2.5
+canvas.width = window.innerWidth / 3.5;
+canvas.height = window.innerHeight / 2.5;
 
 var ctx = c.getContext("2d");
 ctx.lineWidth = 10;
@@ -15,32 +14,31 @@ ctx.moveTo(50, 20);
 ctx.lineTo(370, 20);
 ctx.stroke();
 
-ctx.lineWidth = 4;
-// head
-ctx.beginPath();
-ctx.arc(370, 60, 25, 0, 2 * Math.PI);
-ctx.stroke();
-// body
-ctx.moveTo(370, 90);
-ctx.lineTo(370, 200);
-ctx.stroke();
-// left arm
-ctx.moveTo(360, 100);
-ctx.lineTo(320, 150);
-ctx.stroke();
-// right arm
-ctx.moveTo(380, 100);
-ctx.lineTo(420, 150);
-ctx.stroke();
-// left leg
-ctx.moveTo(360, 205);
-ctx.lineTo(340, 290);
-ctx.stroke();
-// right leg
-ctx.moveTo(380, 205);
-ctx.lineTo(400, 290);
-ctx.stroke();
-
+// ctx.lineWidth = 4;
+// // head
+// ctx.beginPath();
+// ctx.arc(370, 60, 25, 0, 2 * Math.PI);
+// ctx.stroke();
+// // body
+// ctx.moveTo(370, 90);
+// ctx.lineTo(370, 200);
+// ctx.stroke();
+// // left arm
+// ctx.moveTo(360, 100);
+// ctx.lineTo(320, 150);
+// ctx.stroke();
+// // right arm
+// ctx.moveTo(380, 100);
+// ctx.lineTo(420, 150);
+// ctx.stroke();
+// // left leg
+// ctx.moveTo(360, 205);
+// ctx.lineTo(340, 290);
+// ctx.stroke();
+// // right leg
+// ctx.moveTo(380, 205);
+// ctx.lineTo(400, 290);
+// ctx.stroke();
 
 let wordChoices = [
   "word",
@@ -78,6 +76,7 @@ let lives = 6;
 
 const checkLetter = (userGuess) => {
   let checkArr = chosenWord.split("");
+  document.getElementById(userGuess).style.display = "none";
   // console.log(checkArr);
   if (checkArr.includes(userGuess)) {
     for (let j = 0; j < chosenWord.length; j++) {
@@ -92,77 +91,131 @@ const checkLetter = (userGuess) => {
 
   printBoard();
   checkForWin();
-  // console.log(remainingLetters)
+  console.log(remainingLetters);
 };
 
 const checkForWin = () => {
   if (lives == 0) {
-    console.log("You ran out of lives");
+    setTimeout(() => {
+    if(confirm('You ran out of tries.')){
+      window.location.reload();  
+    } 
+    }, "200");
     return;
   } else if (remainingLetters == 0) {
-    console.log("Congrats, you got the word: " + chosenWord);
+    setTimeout(() => {
+      if(confirm('Congrats, you solved the word')){
+        window.location.reload();  
+      } 
+      }, "100");
     return;
   } else {
-    getPrompt();
   }
 };
 
 const printBoard = () => {
-document.getElementById("chosenWord").innerHTML = answerArray.join(" ")
-  if (lives == 6) {
-    console.log("_ _ _");
-    console.log(" |   ");
-    console.log(" |  ");
-    console.log(" |  ");
-    console.log("_|_");
-    console.log(answerArray.join(" "));
-  } else if (lives == 5) {
-    console.log("_ _ _");
-    console.log(" |   O");
-    console.log(" |  ");
-    console.log(" |  ");
-    console.log("_|_");
-    console.log(answerArray.join(" "));
+  document.getElementById("chosenWord").innerHTML = answerArray.join(" ");
+  if (lives == 5) {
+    ctx.lineWidth = 4;
+    // head
+    ctx.beginPath();
+    ctx.arc(370, 60, 25, 0, 2 * Math.PI);
+    ctx.stroke();
   } else if (lives == 4) {
-    console.log("_ _ _");
-    console.log(" |   O");
-    console.log(" |   |");
-    console.log(" |  ");
-    console.log("_|_");
-    console.log(answerArray.join(" "));
+    ctx.lineWidth = 4;
+    // head
+    ctx.beginPath();
+    ctx.arc(370, 60, 25, 0, 2 * Math.PI);
+    ctx.stroke();
+    // body
+    ctx.moveTo(370, 90);
+    ctx.lineTo(370, 200);
+    ctx.stroke();
   } else if (lives == 3) {
-    console.log("_ _ _");
-    console.log(" |   O");
-    console.log(" |  /|");
-    console.log(" |  ");
-    console.log("_|_");
-    console.log(answerArray.join(" "));
+    ctx.lineWidth = 4;
+    // head
+    ctx.beginPath();
+    ctx.arc(370, 60, 25, 0, 2 * Math.PI);
+    ctx.stroke();
+    // body
+    ctx.moveTo(370, 90);
+    ctx.lineTo(370, 200);
+    ctx.stroke();
+    // left arm
+    ctx.moveTo(360, 100);
+    ctx.lineTo(320, 150);
+    ctx.stroke();
   } else if (lives == 2) {
-    console.log("_ _ _");
-    console.log(" |   O");
-    console.log(" |  /|\\");
-    console.log(" |  ");
-    console.log("_|_");
-    console.log(answerArray.join(" "));
+    ctx.lineWidth = 4;
+    // head
+    ctx.beginPath();
+    ctx.arc(370, 60, 25, 0, 2 * Math.PI);
+    ctx.stroke();
+    // body
+    ctx.moveTo(370, 90);
+    ctx.lineTo(370, 200);
+    ctx.stroke();
+    // left arm
+    ctx.moveTo(360, 100);
+    ctx.lineTo(320, 150);
+    ctx.stroke();
+    // right arm
+    ctx.moveTo(380, 100);
+    ctx.lineTo(420, 150);
+    ctx.stroke();
   } else if (lives == 1) {
-    console.log("_ _ _");
-    console.log(" |   O");
-    console.log(" |  /|\\");
-    console.log(" |  / ");
-    console.log("_|_");
-    console.log(answerArray.join(" "));
+    ctx.lineWidth = 4;
+    // head
+    ctx.beginPath();
+    ctx.arc(370, 60, 25, 0, 2 * Math.PI);
+    ctx.stroke();
+    // body
+    ctx.moveTo(370, 90);
+    ctx.lineTo(370, 200);
+    ctx.stroke();
+    // left arm
+    ctx.moveTo(360, 100);
+    ctx.lineTo(320, 150);
+    ctx.stroke();
+    // right arm
+    ctx.moveTo(380, 100);
+    ctx.lineTo(420, 150);
+    ctx.stroke();
+    // left leg
+    ctx.moveTo(360, 205);
+    ctx.lineTo(340, 290);
+    ctx.stroke();
+  } else if (lives == 0) {
+    document.getElementById("chosenWord").innerHTML = chosenWord
+    ctx.lineWidth = 4;
+    // head
+    ctx.beginPath();
+    ctx.arc(370, 60, 25, 0, 2 * Math.PI);
+    ctx.stroke();
+    // body
+    ctx.moveTo(370, 90);
+    ctx.lineTo(370, 200);
+    ctx.stroke();
+    // left arm
+    ctx.moveTo(360, 100);
+    ctx.lineTo(320, 150);
+    ctx.stroke();
+    // right arm
+    ctx.moveTo(380, 100);
+    ctx.lineTo(420, 150);
+    ctx.stroke();
+    // left leg
+    ctx.moveTo(360, 205);
+    ctx.lineTo(340, 290);
+    ctx.stroke();
+    // right leg
+    ctx.moveTo(380, 205);
+    ctx.lineTo(400, 290);
+    ctx.stroke();
   } else {
-    console.log("_ _ _");
-    console.log(" |   O");
-    console.log(" |  /|\\");
-    console.log(" |  / \\");
-    console.log("_|_");
   }
 };
 
-const getPrompt = () => {
-
-};
+const getPrompt = () => {};
 
 printBoard();
-

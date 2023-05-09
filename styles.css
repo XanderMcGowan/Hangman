@@ -1,11 +1,27 @@
 
 
 h1 {
+    margin-top: 3vh;
+    font-size: 3vw;
+    /* border: 1px solid red; */
+    color: #23262F;
     font-family: 'IBM Plex Mono', monospace;
 } 
 
+h2 {
+    margin-top: -2vh;
+    font-size: 1.5vw;
+    /* border: 1px solid red; */
+    color: #23262F;
+    font-family: 'IBM Plex Mono', monospace; 
+}
+
+body{
+    background-color:#E0D0C1;
+}
+
 .main-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
 
@@ -16,8 +32,9 @@ h1 {
     /* border: 1px solid purple; */
     height: 15vh;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    flex-direction: column;
     font-size: 3vw;
 }
 
@@ -29,14 +46,61 @@ h1 {
 }
 
 canvas {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 #chosenWord {
-    border: 1px solid violet;
+    margin-top: 2vh;
+    font-family: 'IBM Plex Mono', monospace;
+    /* border: 1px solid violet; */
     display: flex;
-    font-size: 5vw;
+    font-size: 4vw;
     justify-content: center;
 }
 
+.button-box{
+    margin-top: 2vh;
+    margin-left: 25vw;
+    width: 50vw;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    text-align: center;
+    margin: 1vh;
+    width: 4vw;
+    height: 6vh;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #23262F;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    will-change: box-shadow,transform;
+    font-size: 40px;
+  }
+
+  button:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
 
